@@ -25,12 +25,8 @@ for path in filepaths:
     print(f"Filename: {path} -- No chars: {len(text_file)}")
 
     pdf.set_font(family='Times', style='', size=12)
-    no_iter = math.ceil(len(text_file)/110)
-    for i in range(no_iter):     
-        if i == no_iter:
-            pdf.cell(w=0,h=7, txt=text_file[i*110:], align='L', ln=1)
-        else:        
-            pdf.cell(w=0,h=7, txt=text_file[i*110:(i+1)*110], align='L', ln=1)
+    pdf.multi_cell(w=0, h=8, txt=text_file, align='L')
+
 
 pdf.output('merge_text.pdf')
 
